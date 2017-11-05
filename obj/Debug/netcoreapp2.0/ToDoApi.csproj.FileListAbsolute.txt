@@ -1,0 +1,10 @@
+/Users/nikolamanojlovic/Development/ToDoApi/bin/Debug/netcoreapp2.0/ToDoApi.deps.json
+/Users/nikolamanojlovic/Development/ToDoApi/bin/Debug/netcoreapp2.0/ToDoApi.runtimeconfig.json
+/Users/nikolamanojlovic/Development/ToDoApi/bin/Debug/netcoreapp2.0/ToDoApi.runtimeconfig.dev.json
+/Users/nikolamanojlovic/Development/ToDoApi/bin/Debug/netcoreapp2.0/ToDoApi.dll
+/Users/nikolamanojlovic/Development/ToDoApi/bin/Debug/netcoreapp2.0/ToDoApi.pdb
+/Users/nikolamanojlovic/Development/ToDoApi/obj/Debug/netcoreapp2.0/ToDoApi.csproj.CoreCompileInputs.cache
+/Users/nikolamanojlovic/Development/ToDoApi/obj/Debug/netcoreapp2.0/ToDoApi.AssemblyInfoInputs.cache
+/Users/nikolamanojlovic/Development/ToDoApi/obj/Debug/netcoreapp2.0/ToDoApi.AssemblyInfo.cs
+/Users/nikolamanojlovic/Development/ToDoApi/obj/Debug/netcoreapp2.0/ToDoApi.dll
+/Users/nikolamanojlovic/Development/ToDoApi/obj/Debug/netcoreapp2.0/ToDoApi.pdb
