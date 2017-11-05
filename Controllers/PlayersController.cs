@@ -43,7 +43,7 @@ namespace PackersLineup.Controllers
                 return NoContent();
             }
             
-            return NoContent();
+            return StatusCode((int)response.StatusCode);
         }
     }
 }
