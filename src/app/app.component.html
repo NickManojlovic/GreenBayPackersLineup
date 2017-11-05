@@ -1,38 +1,16 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-12">
-          <div class="jumbotron bg-success text-white wow fadeIn">
-              <h1 class="display-3">Hello, Cheese Head Fans! </h1>
-              <p class="lead">Welcome to Green Bay Packers lineup!</p>
-              <hr class="my-4">
-              <p>Below you will find all of the Green Bay Packer players, use a search text box to narrow down your selection</p>
-          </div>   
-      </div>     
+        <div class="col-md-12">
+            <div class="jumbotron bg-success text-white wow fadeIn">
+                <h1 class="display-3">Hello, Cheese Head Fans! </h1>
+                <p class="lead">Welcome to Green Bay Packers lineup!</p>
+                <hr class="my-4">
+                <p>Below you will find all of the Green Bay Packer players, use a search text box to narrow down your selection</p>
+            </div>   
+        </div>     
   
-      <div class="col-md-12">
-        <div class="btn-group wow fadeIn">     
-            <input autofocus [(ngModel)]="search" name="search" type="text" class="form-control" id="search" placeholder="Filter by player name">
-            <span *ngIf="search.length > 0" id="searchclear" (click)="clearSearch()" class="fa fa-window-close"></span>
+        <div class="col-md-12">
+            <players></players>
         </div>
-      </div>
-
-      <div class="col-md-12" *ngIf="players && (players | searchFilter: search).length === 0">
-          Woops no matches found!!
-        </div>
-
-      <div *ngFor="let item of (players | searchFilter: search)" class="col-md-6 py-1">
-          <div class="card wow fadeIn">
-            <h4 class="card-header bg-warning text-white">{{item.fullName}} ({{item.uniformNumber}})</h4>
-            <div class="card-body">
-              <p class="card-text">Weight: {{item.weight}}</p>
-              <p class="card-text">Height: {{item.height}}</p>
-              <p class="card-text">Birthday: {{item.birthDate}}</p>
-              <p class="card-text">Position: {{item.position}}</p>
-              <p class="card-text">Status: {{item.status}}</p>
-              <p class="card-text">College: {{item.college}}</p>
-              <a href="{{item.profileUrl}}" class="btn btn-primary">More Info</a>
-            </div>
-          </div>
-      </div>  
     </div>
 </div>
