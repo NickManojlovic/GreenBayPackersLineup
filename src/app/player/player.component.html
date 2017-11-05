@@ -1,13 +1,15 @@
 <div class="row">
     <div class="col-md-12">
+        <div *ngIf="error" class="alert alert-danger fadeIn" role="alert">
+            Oh No... Something went wrong, try again later!
+        </div>
+        <div *ngIf="players && (players | searchFilter: search).length === 0" class="alert alert-info fadeIn" role="alert">
+            Woops, no matches found!
+        </div>
         <div class="btn-group wow fadeIn">     
-            <input autofocus [(ngModel)]="search" name="search" type="text" class="form-control" id="search" placeholder="Filter by player name">
+            <input [hidden]="error" autofocus="autofocus" [(ngModel)]="search" name="search" type="text" class="form-control" id="search" placeholder="Filter by player name">
             <span *ngIf="search.length > 0" id="searchclear" (click)="clearSearch()" class="fa fa-window-close"></span>
         </div>
-    </div>
-
-    <div class="col-md-12" *ngIf="players && (players | searchFilter: search).length === 0">
-        Woops no matches found!!
     </div>
 
     <div *ngFor="let item of (players | searchFilter: search)" class="col-md-6 py-1">

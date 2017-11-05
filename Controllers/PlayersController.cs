@@ -35,7 +35,12 @@ namespace PackersLineup.Controllers
             {
                 var contenJson = await response.Content.ReadAsStringAsync();
                 var players = JsonConvert.DeserializeObject<List<Player>>(contenJson);
-                return Ok(players.OrderBy(m=> m.FullName));
+                if(players != null && players.Any())
+                {
+                    return Ok(players.OrderBy(m=> m.FullName));
+                }
+
+                return NoContent();
             }
             
             return NoContent();

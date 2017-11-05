@@ -9,7 +9,8 @@ import { WOW } from 'wowjs/dist/wow.min';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit, AfterViewInit  {
-  search:string = "";
+  error: boolean = false;
+  search: string = "";
   players:IPlayer[] = null;
   wow:WOW;
 
@@ -27,6 +28,7 @@ export class PlayerComponent implements OnInit, AfterViewInit  {
       this.wow.sync();
     },error=>{
         console.log(error);
+        this.error = true;
     });
   }
 
