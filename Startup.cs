@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace ToDoApi
+namespace PackersLineup
 {
     public class Startup
     {
@@ -40,7 +40,8 @@ namespace ToDoApi
             await next();
             if (context.Response.StatusCode == 404 &&
                 !Path.HasExtension(context.Request.Path.Value) &&
-                !context.Request.Path.Value.StartsWith("/api/")) {
+                !context.Request.Path.Value.StartsWith("/api/")) 
+                {
                     context.Request.Path = "/index.html";
                     await next();
                 }

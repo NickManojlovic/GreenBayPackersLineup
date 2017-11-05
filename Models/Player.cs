@@ -1,4 +1,5 @@
-namespace ToDoApi.Models{
+namespace PackersLineup.Models
+{
     public class Player
     {
         public int Weight { get; set; }

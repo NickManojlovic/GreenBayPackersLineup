@@ -9,32 +9,36 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft;
 using Newtonsoft.Json;
-using ToDoApi.Models;
+using PackersLineup.Models;
 
-[Route("api/teams/{teamId}/players")]
-public class PlayersController : Controller{
-    private IConfiguration _config;
-    public PlayersController(IConfiguration config)
+namespace PackersLineup.Controllers 
+{
+    [Route("api/teams/{teamId}/players")]
+    public class PlayersController : Controller
     {
-        _config = config;
-    }
-
-    [HttpGet]
-   public async Task<IActionResult> Get(string teamId) {
-        HttpClient client = new HttpClient();
-        client.BaseAddress = new Uri(_config.GetValue("sureBitsApi", ""));
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        HttpResponseMessage response = await client.GetAsync("v0/team/"+teamId+"/roster");
-        if (response.IsSuccessStatusCode)
+        private IConfiguration _config;
+        public PlayersController(IConfiguration config)
         {
-            var contenJson = await response.Content.ReadAsStringAsync();
-            var players = JsonConvert.DeserializeObject<List<Player>>(contenJson);
-            return Ok(players.OrderBy(m=> m.FullName));
+            _config = config;
         }
-        
-        return NoContent();
-   }
-}
 
+        [HttpGet]
+        public async Task<IActionResult> Get(string teamId) 
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(_config.GetValue("sureBitsApi", ""));
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = await client.GetAsync("v0/team/"+teamId+"/roster");
+            if (response.IsSuccessStatusCode)
+            {
+                var contenJson = await response.Content.ReadAsStringAsync();
+                var players = JsonConvert.DeserializeObject<List<Player>>(contenJson);
+                return Ok(players.OrderBy(m=> m.FullName));
+            }
+            
+            return NoContent();
+        }
+    }
+}
