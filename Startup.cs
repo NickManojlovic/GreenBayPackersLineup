@@ -36,6 +36,7 @@ namespace PackersLineup
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //If endpoint does not exist and its not an api endpoint return index
             app.Use(async (context, next) => {
             await next();
             if (context.Response.StatusCode == 404 &&

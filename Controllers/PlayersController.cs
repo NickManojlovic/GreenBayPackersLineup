@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +39,11 @@ namespace PackersLineup.Controllers
                     return Ok(players.OrderBy(m=> m.FullName));
                 }
 
+                //No players found
                 return NoContent();
             }
-            
+
+            //Log error and return status returned from endpoint
             return StatusCode((int)response.StatusCode);
         }
     }

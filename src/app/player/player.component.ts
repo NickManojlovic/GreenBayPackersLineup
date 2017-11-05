@@ -22,6 +22,7 @@ export class PlayerComponent implements OnInit, AfterViewInit  {
     this.wow.init();
   }
 
+  //get all players for team gb = green bay packers
   ngOnInit():void{
     this.playerService.getByTeam("gb").subscribe((items:IPlayer[]) => {
       this.players = items;
@@ -32,6 +33,7 @@ export class PlayerComponent implements OnInit, AfterViewInit  {
     });
   }
 
+  //clear search property
   clearSearch():void{
     this.search = "";
   }
