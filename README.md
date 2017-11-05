@@ -1,6 +1,6 @@
 # Green Bay Packers Lineup
 
-Application that displays all Green Bay Packers players and their details using http://api.suredbits.com/nfl/ API.
+Application that displays all Green Bay Packer players and their details using http://api.suredbits.com/nfl/ API.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 and [.NET Core](https://www.microsoft.com/net/learn/get-started/macos) version 2.0.0
