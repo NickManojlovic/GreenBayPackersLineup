@@ -9,6 +9,8 @@ and [.NET Core](https://www.microsoft.com/net/learn/get-started/macos) version 2
 
 Run `ng serve` for a angular dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Run `ng serve --proxy-conf proxy.config.json` for a angular dev server using a proxy for the local API endpoint. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 Run `dotnet run` for .net core server. Navigate to `http://localhost:5000/`.
 
 ## Build
