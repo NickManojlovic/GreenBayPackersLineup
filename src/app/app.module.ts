@@ -7,12 +7,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { SearchFilter } from './player/SearchFilterPipe';
+import { SortPipe } from './player/SortPipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    SearchFilter
+    SearchFilter,
+    SortPipe
   ],
   imports: [
     BrowserModule,

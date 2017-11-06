@@ -4,37 +4,37 @@ import { IPlayer } from './player';
 import { WOW } from 'wowjs/dist/wow.min';
 
 @Component({
-  selector: 'players',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+    selector: 'players',
+    templateUrl: './player.component.html',
+    styleUrls: ['./player.component.css']
 })
-export class PlayerComponent implements OnInit, AfterViewInit  {
-  error: boolean = false;
-  search: string = "";
-  players:IPlayer[] = null;
-  wow:WOW;
+export class PlayerComponent implements OnInit, AfterViewInit {
+    error: boolean = false;
+    search: string = "";
+    players: IPlayer[] = null;
 
-  constructor(private playerService:PlayerService) {
-  }
+    constructor(private playerService: PlayerService) {
+    }
 
-  ngAfterViewInit(): void {
-    this.wow = new WOW();
-    this.wow.init();
-  }
+    ngAfterViewInit(): void {
+        new WOW().init();        
+    }
 
-  //get all players for team gb = green bay packers
-  ngOnInit():void{
-    this.playerService.getByTeam("gb").subscribe((items:IPlayer[]) => {
-      this.players = items;
-      this.wow.sync();
-    },error=>{
-        console.log(error);
-        this.error = true;
-    });
-  }
+    //get all players for team gb = green bay packers
+    ngOnInit(): void {
+        this.playerService.getByTeam("gb")
+            .subscribe((items: IPlayer[]) => {
+                    this.players = items;
+                    //new WOW().sync();
+                },
+                error => {
+                    console.log(error);
+                    this.error = true;
+                });
+    }
 
-  //clear search property
-  clearSearch():void{
-    this.search = "";
-  }
+    //clear search property
+    clearSearch(): void {
+        this.search = "";
+    }
 }

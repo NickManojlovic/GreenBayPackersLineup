@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -12,12 +12,12 @@ import { IPlayer } from './player';
 export class PlayerService {
     private url = "api/teams";
 
-    constructor(private _http: Http) {
+    constructor(private http: Http) {
         this.url = this.url;
     }
 
-    getByTeam(teamName:string): Observable<IPlayer[]> {
-        return this._http.get(`${this.url}/${teamName}/players`)
+    getByTeam(teamName: string): Observable<IPlayer[]> {
+        return this.http.get(`${this.url}/${teamName}/players`)
             .map((response: Response) => <IPlayer[]>response.json())
             .catch(this.handleError);
     }
