@@ -12,12 +12,14 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     error: boolean = false;
     search: string = "";
     players: IPlayer[] = null;
+    wow:WOW;
 
     constructor(private playerService: PlayerService) {
     }
 
     ngAfterViewInit(): void {
-        new WOW().init();        
+        this.wow = new WOW()        
+        this.wow.init();
     }
 
     //get all players for team gb = green bay packers
@@ -25,7 +27,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         this.playerService.getByTeam("gb")
             .subscribe((items: IPlayer[]) => {
                     this.players = items;
-                    //new WOW().sync();
+                    this.wow.sync();
                 },
                 error => {
                     console.log(error);
